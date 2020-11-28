@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:weightSum="1">
+
+
+    <TextView
+        android:id="@+id/tvx"
+        android:layout_width="214dp"
+        android:layout_height="69dp"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="117dp"
+        tools:layout_editor_absoluteY="100dp" />
+
+    <TextView
+        android:id="@+id/tvy"
+        android:layout_width="214dp"
+        android:layout_height="53dp"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="126dp"
+        tools:layout_editor_absoluteY="158dp" />
+
+    <TextView
+        android:id="@+id/tvz"
+        android:layout_width="214dp"
+        android:layout_height="53dp"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="130dp"
+        tools:layout_editor_absoluteY="234dp" />
+
+
+</LinearLayout>
+
