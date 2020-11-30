@@ -32,6 +32,21 @@
         android:text="TextView"
         tools:layout_editor_absoluteX="130dp"
         tools:layout_editor_absoluteY="234dp" />
+    <Button
+        android:id="@+id/bt_start"
+        android:layout_width="186dp"
+        android:layout_height="62dp"
+        android:text="开始显示加速度"
+        android:onClick="start"
+        tools:layout_editor_absoluteX="115dp"
+        tools:layout_editor_absoluteY="444dp" />
+
+    <Button
+        android:id="@+id/bt_stop"
+        android:layout_width="183dp"
+        android:layout_height="62dp"
+        android:onClick="stop"
+        android:text="停止显示加速度" />
 
 
 </LinearLayout>

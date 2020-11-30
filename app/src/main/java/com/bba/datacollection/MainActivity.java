@@ -6,7 +6,9 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity{
 //    private TextView accelerometerView;
@@ -35,9 +37,18 @@ public class MainActivity extends Activity{
     protected void onResume()
     {
         //获取加速度传感器
+//        Sensor accelerometerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+//        sensorManager.registerListener(sensorEventListener, accelerometerSensor, SensorManager.SENSOR_DELAY_NORMAL);
+        super.onResume();
+    }
+    protected void start(View v){
         Sensor accelerometerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         sensorManager.registerListener(sensorEventListener, accelerometerSensor, SensorManager.SENSOR_DELAY_NORMAL);
-        super.onResume();
+        Toast.makeText(this, "start", Toast.LENGTH_SHORT).show();
+    }
+    protected void stop(View v){
+        Toast.makeText(this, "stop", Toast.LENGTH_SHORT).show();
+        sensorManager.unregisterListener(sensorEventListener);
     }
 
     private final class MySensorEventListener implements SensorEventListener
