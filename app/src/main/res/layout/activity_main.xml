@@ -10,9 +10,17 @@
 
 
     <TextView
+        android:id="@+id/net_status"
+        android:layout_width="214dp"
+        android:layout_height="53dp"
+        android:text="net status: "
+        tools:layout_editor_absoluteX="130dp"
+        tools:layout_editor_absoluteY="234dp" />
+
+    <TextView
         android:id="@+id/tvx"
         android:layout_width="214dp"
-        android:layout_height="69dp"
+        android:layout_height="60dp"
         android:text="TextView"
         tools:layout_editor_absoluteX="117dp"
         tools:layout_editor_absoluteY="100dp" />

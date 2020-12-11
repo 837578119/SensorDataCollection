@@ -1,10 +1,12 @@
 package com.bba.datacollection;
 
 import android.app.Activity;
+import android.content.IntentFilter;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -13,29 +15,44 @@ import android.widget.Toast;
 public class MainActivity extends Activity{
 //    private TextView accelerometerView;
 //    private TextView orientationView;
+    private TextView net_status_check;
     private TextView accelerometerView_x;
     private TextView accelerometerView_y;
     private TextView accelerometerView_z;
     private SensorManager sensorManager;
     private MySensorEventListener sensorEventListener;
+    private NetworkStateReceiver netWorkStateReceiver;
+    private String net_state = "";
+    private AndroidApplication app;
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+//        ""https://www.cnblogs.com/zhujiabin/p/4227785.html
         sensorEventListener = new MySensorEventListener();
+        net_status_check = (TextView) this.findViewById(R.id.net_status);
         accelerometerView_x = (TextView) this.findViewById(R.id.tvx);
         accelerometerView_y = (TextView) this.findViewById(R.id.tvy);
         accelerometerView_z = (TextView) this.findViewById(R.id.tvz);
 //        orientationView = (TextView) this.findViewById(R.id.orientationView);
         //获取感应器管理器
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        app = (AndroidApplication)getApplication();
+
     }
 
     @Override
     protected void onResume()
     {
+        if (netWorkStateReceiver == null) {
+            netWorkStateReceiver = new NetworkStateReceiver();
+        }
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(netWorkStateReceiver, filter);
+        netWorkStateReceiver.set_view(net_status_check);
+        System.out.println("注册");
         //获取加速度传感器
 //        Sensor accelerometerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 //        sensorManager.registerListener(sensorEventListener, accelerometerSensor, SensorManager.SENSOR_DELAY_NORMAL);
@@ -80,6 +97,8 @@ public class MainActivity extends Activity{
     @Override
     protected void onPause()
     {
+        unregisterReceiver(netWorkStateReceiver);
+        System.out.println("注销");
         sensorManager.unregisterListener(sensorEventListener);
         super.onPause();
     }
