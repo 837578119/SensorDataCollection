@@ -11,40 +11,41 @@
 
     <TextView
         android:id="@+id/net_status"
-        android:layout_width="214dp"
-        android:layout_height="53dp"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
         android:text="net status: "
         tools:layout_editor_absoluteX="130dp"
         tools:layout_editor_absoluteY="234dp" />
 
     <TextView
-        android:id="@+id/tvx"
-        android:layout_width="214dp"
-        android:layout_height="60dp"
-        android:text="TextView"
+        android:id="@+id/accelerometer"
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:text="Accelerometer"
         tools:layout_editor_absoluteX="117dp"
         tools:layout_editor_absoluteY="100dp" />
 
     <TextView
-        android:id="@+id/tvy"
-        android:layout_width="214dp"
-        android:layout_height="53dp"
-        android:text="TextView"
+        android:id="@+id/gyroscope"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:text="Gyroscope   "
         tools:layout_editor_absoluteX="126dp"
         tools:layout_editor_absoluteY="158dp" />
 
     <TextView
-        android:id="@+id/tvz"
-        android:layout_width="214dp"
-        android:layout_height="53dp"
-        android:text="TextView"
+        android:id="@+id/result"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:text="result: "
         tools:layout_editor_absoluteX="130dp"
-        tools:layout_editor_absoluteY="234dp" />
+        tools:layout_editor_absoluteY="234dp"
+        android:layout_weight="0.04" />
     <Button
         android:id="@+id/bt_start"
         android:layout_width="186dp"
         android:layout_height="62dp"
-        android:text="开始显示加速度"
+        android:text="开始监测"
         android:onClick="start"
         tools:layout_editor_absoluteX="115dp"
         tools:layout_editor_absoluteY="444dp" />
@@ -54,7 +55,7 @@
         android:layout_width="183dp"
         android:layout_height="62dp"
         android:onClick="stop"
-        android:text="停止显示加速度" />
+        android:text="结束监测" />
 
 
 </LinearLayout>
